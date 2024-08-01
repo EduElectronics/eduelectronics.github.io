@@ -5,33 +5,3 @@ body {
     background-attachment: fixed; /* La imagen de fondo se queda fija al hacer scroll */
     background-position: center; /* Centra la imagen de fondo */
 }
-
-h1{
-    color: rgb(255, 50, 50);
-}
-
-p{
-    color: rgb(255, 255, 255);
-    font-style: italic;
-}
-
-form{
-    color: rgb(9, 255, 0);
-}
-
-h2{
-    color: rgb(209, 0, 174);
-}
-
-ul{
-    color: rgb(9, 255, 0);
-}
-
-.faltante{
-    color: rgb(255, 0, 0);
-}
-
-#ingrediente_secreto{
-    color: blue;
-}
-
