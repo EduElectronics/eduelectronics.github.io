@@ -4,5 +4,5 @@ body {
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-attachment: fixed; /* La imagen de fondo se queda fija al hacer scroll */
     background-position: center; /* Centra la imagen de fondo */
-    color: rgb(223, 222, 222);
+    color: rgb(50, 180, 255);
 }
