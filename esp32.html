@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Control de Potenciómetro y Salida Digital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+    .container { max-width: 400px; margin: 0 auto; }
+    .reading { font-size: 2em; }
+    .button { padding: 10px 20px; font-size: 1em; }
+  </style>
+</head>
+<body>
+  <h2>Control de Potenciómetro y Salida Digital</h2>
+  <div class="container">
+    <p class="reading">Valor del Potenciómetro: <span id="potValue">0</span></p>
+    <p>
+      <button id="toggleButton" class="button" onclick="toggleOutput()">Encender</button>
+    </p>
+  </div>
+
+  <script>
+    setInterval(function() {
+      getPotValue();
+    }, 1000);
+
+    function getPotValue() {
+      fetch('/potValue')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('potValue').innerText = data;
+        });
+    }
+
+    function toggleOutput() {
+      let button = document.getElementById('toggleButton');
+      let state = (button.innerText === "Encender") ? 1 : 0;
+      fetch(`/toggleOutput?state=${state}`)
+        .then(response => response.text())
+        .then(data => {
+          button.innerText = (data === "1") ? "Apagar" : "Encender";
+        });
+    }
+  </script>
+</body>
+</html>
