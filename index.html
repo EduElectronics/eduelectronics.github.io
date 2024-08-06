@@ -8,14 +8,14 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             function fetchSensorData() {
-                fetch('http://192.168.100.43/sensor')
+                fetch('http://192.168.100.43/sensor')  // Cambiado a HTTP
                     .then(response => response.json())
                     .then(data => {
                         document.getElementById('sensor-value').innerText = data.sensorValue;
                     })
                     .catch(error => console.error('Error:', error));
             }
-            setInterval(fetchSensorData, 500);
+            setInterval(fetchSensorData, 5000); // Cambiado a 5 segundos
             fetchSensorData(); // Llamar de inmediato para cargar el dato al inicio
         });
     </script>
@@ -93,6 +93,7 @@
     </footer>
 </body>
 </html>
+
 
 <!-- https://eduelectronics.github.io/esp32_post.php?user=EDU&pass=555 -->
 
