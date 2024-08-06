@@ -6,5 +6,3 @@ $password = $_GET["pass"];
 echo "hola ".$user."tu clave es ".$password;
 
 ?>
-
-

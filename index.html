@@ -5,38 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduElectronics</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function fetchSensorData() {
+                fetch('http://192.168.100.43/sensor')
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('sensor-value').innerText = data.sensorValue;
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+            setInterval(fetchSensorData, 500);
+            fetchSensorData(); // Llamar de inmediato para cargar el dato al inicio
+        });
+    </script>
 </head>
-
 <body>
-    <h1>TITULO</h1>
-    <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-        Laborum perspiciatis deserunt maiores aut quasi facere eum 
-        iusto culpa veritatis officia expedita ipsum quam, quos quisquam 
-        fuga nemo, vero nam asperiores. </p>
+    <header>
+        <div class="container">
+            <h1>Mi Portafolio</h1>
+            <nav>
+                <ul>
+                    <li><a href="#sobre-mi">Sobre mí</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
     
-    <form>
-        <input type="text" name="userText" placeholder="Escribe tu opinión">
-        <input type="email" name="userEmail" placeholder="Escribe tu email"  required>
-        <input type="password" name="userPass" placeholder="Escribe tu password">
-        <input type="checkbox" name="userPass">
-        <input type="radio" name="userPass">
-        <input type="file" name="userPass">
-        <input type="date" name="userPass">
-        <input type="submit" name="userPass">
-    </form>
+    <section id="sobre-mi" class="section">
+        <div class="container">
+            <h2>Sobre mí</h2>
+            <p>Hola, soy [Tu Nombre], un desarrollador apasionado por la creación de soluciones innovadoras. Tengo experiencia en [tu experiencia] y me especializo en [tus especialidades].</p>
+            <p>Aquí puedes encontrar algunos de mis trabajos y proyectos.</p>
+        </div>
+    </section>
+    
+    <section id="proyectos" class="section">
+        <div class="container">
+            <h2>Proyectos</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="ingeM.jpg" alt="Proyecto 1">
+                    <h3>Proyecto 1</h3>
+                    <p>Descripción breve del proyecto 1.</p>
+                </div>
+                <div class="project-card">
+                    <img src="ingeF.jpg" alt="Proyecto 2">
+                    <h3>Proyecto 2</h3>
+                    <p>Descripción breve del proyecto 2.</p>
+                </div>
+                <!-- Agrega más tarjetas de proyecto según sea necesario -->
+            </div>
+        </div>
+    </section>
+    
+    <section id="contacto" class="section">
+        <div class="container">
+            <h2>Contacto</h2>
+            <form action="#" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
 
-    <h2>ingredientes</h2>
-    <ul>
-        <li class="faltante">Harina</li>
-        <li>sal</li>
-        <li>Harina2</li>
-        <li class="faltante">Harina3</li>
-        <li id="ingrediente_secreto">levadura</li>
-    </ul>
+    <section id="sensor" class="section">
+        <div class="container">
+            <h2>Lectura del Sensor</h2>
+            <p>Valor del sensor: <span id="sensor-value">0</span></p>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 [Tu Nombre]. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>
 
-
+<!-- https://eduelectronics.github.io/esp32_post.php?user=EDU&pass=555 -->
 
 
 
